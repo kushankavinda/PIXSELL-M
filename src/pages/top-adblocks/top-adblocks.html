@@ -1,6 +1,5 @@
 <!--
   Generated template for the TopAdblocksPage page.
-
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
@@ -19,16 +18,16 @@
          </ion-col>
          <ion-col col-8>
           <h2>
-            <small>Rs</small> {{(ADblock.currentPrice/ADblock.numberOfPx)| number:'1.2-2'}} |
-            <small>Rs</small> {{(ADblock.expectPrice/ADblock.numberOfPx)| number:'1.2-2'}} |
+            <small>Rs</small> {{(ADblock.basePrice/(ADblock.width * ADblock.height))| number:'1.2-2'}} |
+        <!--    <small>Rs</small> {{(ADblock.expectPrice/ADblock.numberOfPx)| number:'1.2-2'}} | -->
             <small>Risk</small> {{(ADblock.ownerSetRisk)}}
           </h2>
           <p>{{ADblock.siteName}} {{ADblock.blockName}} {{ADblock.blockId}}</p>
           <p>{{ADblock.progressRate| number:'1.2-2'}}%</p>
          </ion-col>
          <ion-col col-2>
-           <round-progress  [current]="ADblock.numberOfPx - ADblock.availablePx" [max]="ADblock.numberOfPx" [radius]="20" [stroke]="5"></round-progress> 
-           <span class="icon-text-small">{{(100-(ADblock.availablePx/ADblock.numberOfPx)*100)| number:'1.2-2'}}%</span>       
+           <round-progress  [current]="(ADblock.width * ADblock.height) - ADblock.availablePx" [max]="(ADblock.width * ADblock.height)" [radius]="20" [stroke]="5"></round-progress> 
+           <span class="icon-text-small">{{(100-(ADblock.availablePx/(ADblock.width * ADblock.height))*100)| number:'1.2-2'}}%</span>       
          </ion-col>
      </ion-row>
     </ion-grid>      
